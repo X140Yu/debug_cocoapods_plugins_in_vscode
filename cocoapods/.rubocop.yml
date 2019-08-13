@@ -1,0 +1,22 @@
+inherit_from:
+ - .rubocop_todo.yml
+ - .rubocop_cocoapods.yml
+
+#- CocoaPods ------------------------------------------------------------------
+
+AllCops:
+  TargetRubyVersion: 2.0
+  Exclude:
+    - spec/fixtures/**/*
+    - spec/cocoapods-integration-specs/**/*
+    - vendor/bundle/**/*
+    - examples/**/*
+
+Naming/FileName:
+  Exclude:
+    - bin/*
+    - Rakefile
+
+Style/SignalException:
+  Exclude:
+    - Dangerfile

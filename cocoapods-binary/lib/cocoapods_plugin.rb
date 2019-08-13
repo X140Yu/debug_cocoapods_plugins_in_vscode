@@ -1,0 +1,2 @@
+require 'cocoapods-binary/Main'
+

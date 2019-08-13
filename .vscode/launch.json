@@ -1,0 +1,12 @@
+{
+  "configurations": [{
+    "name": "Debug CocoaPods Plugin",
+    "showDebuggerOutput": true,
+    "type": "Ruby",
+    "request": "launch",
+    "cwd": "${workspaceRoot}/Testing",
+    "pluginPath": "../cocoapods-binary",
+    "program": "${workspaceRoot}/cocoapods/bin/pod",
+    "args": ["install"]
+  }]
+}

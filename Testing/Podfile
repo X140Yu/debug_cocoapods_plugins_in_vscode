@@ -1,0 +1,23 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '12.0'
+
+plugin 'cocoapods-binary'
+# plugin 'cocoapods-keys'
+
+target 'Testing' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  pod 'Then'
+
+  target 'TestingTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'TestingUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

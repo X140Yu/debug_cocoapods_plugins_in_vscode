@@ -1,0 +1,46 @@
+language: ruby
+
+dist: trusty
+
+cache:
+  bundler: true
+
+matrix:
+  include:
+  - rvm: 2.4.1
+    env: COCOAPODS_CI_TASKS=LINT
+
+rvm:
+  - 2.0.0-p647
+  - 2.3.4
+  - 2.4.1
+  - 2.6.2
+
+env:
+  - COCOAPODS_CI_TASKS=SPECS
+
+branches:
+  only:
+    - master
+    - /.+-stable$/
+
+before_install:
+  # There is a bug in travis. When using system ruby, bundler is not
+  # installed and causes the default install action to fail.
+  - if [ "$TRAVIS_RUBY_VERSION" = "system" ]; then sudo gem install "bundler:~> 1.15.0"; else gem install "bundler:~> 1.15.0"; fi
+  # RubyGems 2.0.14 isn't a fun time on 2.0.0p648
+  - if [ "$TRAVIS_RUBY_VERSION" = "system" ]; then sudo gem update --system; fi
+
+before_script:
+  - git config --global user.email "tests@cocoapods.org"
+  - git config --global user.name "CocoaPods Tests"
+  # Disable bundler version check mechanism, as it crashes, possibly due to https://github.com/bundler/bundler/commit/1e05d24050b4177e9a8001b7c1083d713b474faf
+  - bundle config disable_version_check true
+  - bundle exec pod env
+
+script:
+  - bundle exec rake spec:all
+
+addons:
+ code_climate:
+   repo_token: 501acd9bc61d80ef6119b69ab42c52fa66cefddcc6724a1e93a79c3d3e32bf55

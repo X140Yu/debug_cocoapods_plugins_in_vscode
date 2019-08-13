@@ -1,0 +1,16 @@
+PODS:
+  - Then (2.4.0)
+
+DEPENDENCIES:
+  - Then
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Then
+
+SPEC CHECKSUMS:
+  Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
+
+PODFILE CHECKSUM: 93b60c8a809f7d83966ce348802920da3cc7bf40
+
+COCOAPODS: 1.8.0.beta.1
