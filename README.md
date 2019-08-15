@@ -51,6 +51,21 @@ git checkout `pod --version`
 - Add some breakpoint within VSCode
 - Press F5 or hit menu `Debug - Start Debugging`
 
+### Debug CocoaPods & plugin
+
+- Create a new folder, all actions below are under this folder
+- Clone & checkout CocoaPods source code
+- Clone or create a CocoaPods plugin
+- Copy `.vscode` to this folder
+- Make some changes in `.vscode/launch.json`
+  - `cwd`: where the `pod` command execute (the folder should contain a `Podfile`) 
+  - `pluginPath`: path to the plugin
+  - `args`: `pod` command arguments
+- Change `cocoapods/bin/pod:L27` 
+  - From `require 'bundler/setup` to `require_relative '../../.vscode/plugin_patch'`, just like [this](https://github.com/X140Yu/debug_cocoapods_plugins_in_vscode/blob/1a79aa6db45b67218e84044d8c3dce665cf92658/cocoapods/bin/pod#L27:L28)
+- Add some breakpoint within VSCode
+- Press F5 or hit menu `Debug - Start Debugging` 
+
 ### Example of debugging CocoaPods & plugin
 
 > The CocoaPods version in this repository is `1.8.0.beta.1`, incase some version incompatible issue with CocoaPods-Core or other gems, you should install this version's CocoaPods in your Mac too
@@ -63,10 +78,9 @@ git checkout `pod --version`
 - Press F5 or hit menu `Debug - Start Debugging`
 - All set 🌸
 
-## Debug your own plugins
-
-TBD
 
 ---
+
+If you have any question, don't hesitate to fire a issue 😉
 
 Appreciate a 🌟 if you like it. 
