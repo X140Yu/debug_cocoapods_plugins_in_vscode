@@ -1,8 +1,19 @@
 # Debug CocoaPods & Plugins in VSCode
 
+[中文版本点这里](./duwo.md)
+
 ![Debug cocoapods](img/1.png)
 
 ![Debug plugin](img/2.png)
+
+- [Debug CocoaPods & Plugins in VSCode](#debug-cocoapods--plugins-in-vscode)
+  - [Pre-requirements](#pre-requirements)
+    - [Install Debug Gems](#install-debug-gems)
+    - [Install VSCode Ruby Plugin](#install-vscode-ruby-plugin)
+  - [Debug](#debug)
+    - [Debug CocoaPods](#debug-cocoapods)
+    - [Debug CocoaPods & plugin](#debug-cocoapods--plugin)
+    - [Example of debugging CocoaPods & plugin](#example-of-debugging-cocoapods--plugin)
 
 ## Pre-requirements
 
