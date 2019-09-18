@@ -8,7 +8,8 @@
   - [需要安装的工具](#%e9%9c%80%e8%a6%81%e5%ae%89%e8%a3%85%e7%9a%84%e5%b7%a5%e5%85%b7)
     - [Debug Ruby 用的 gem](#debug-ruby-%e7%94%a8%e7%9a%84-gem)
     - [VSCode Ruby 插件](#vscode-ruby-%e6%8f%92%e4%bb%b6)
-  - [Debug](#debug)
+  - [借助 bundler debug](#%e5%80%9f%e5%8a%a9-bundler-debug)
+  - [不借助 bundler debug](#%e4%b8%8d%e5%80%9f%e5%8a%a9-bundler-debug)
     - [Debug CocoaPods 源码](#debug-cocoapods-%e6%ba%90%e7%a0%81)
     - [🔌 同时 debug CocoaPods 和插件源码](#%f0%9f%94%8c-%e5%90%8c%e6%97%b6-debug-cocoapods-%e5%92%8c%e6%8f%92%e4%bb%b6%e6%ba%90%e7%a0%81)
     - [🌰 一个 debug CocoaPods 源码及插件的例子](#%f0%9f%8c%b0-%e4%b8%80%e4%b8%aa-debug-cocoapods-%e6%ba%90%e7%a0%81%e5%8f%8a%e6%8f%92%e4%bb%b6%e7%9a%84%e4%be%8b%e5%ad%90)
@@ -26,7 +27,43 @@ gem install debase
 
 [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby)
 
-## Debug
+
+## 借助 bundler debug
+
+- 在根目录创建 `Gemfile`
+
+```rb
+gem 'cocoapods', path: 'path/to/cocoapods/'
+gem 'cocoapods-binary', path: 'path/to/cocoapods-binary/'
+gem 'ruby-debug-ide'
+gem 'debase'
+```
+
+- 运行 `bundle install`
+- 创建 `.vscode/launch.json`
+
+```json
+{
+  "configurations": [{
+      "name": "Debug CocoaPods Plugin with Bundler",
+      "showDebuggerOutput": true,
+      "type": "Ruby",
+      "request": "launch",
+      "useBundler": true,
+      "cwd": "${workspaceRoot}/Testing",
+      "program": "${workspaceRoot}/cocoapods/bin/pod",
+      "args": ["install"]
+    }
+}
+```
+
+- 在 VSCode 中对源码下断点
+- 按 F5 或点击菜单 `Debug - Start Debugging`
+
+
+## 不借助 bundler debug
+
+> 骚年，不要浪费时间了，快去使用 bundler 吧！
 
 ### Debug CocoaPods 源码
 
