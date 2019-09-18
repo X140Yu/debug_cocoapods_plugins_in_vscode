@@ -12,7 +12,8 @@
   - [Pre-requirements](#pre-requirements)
     - [Install Debug Gems](#install-debug-gems)
     - [Install VSCode Ruby Plugin](#install-vscode-ruby-plugin)
-  - [Debug](#debug)
+  - [Debug With bundler](#debug-with-bundler)
+  - [Debug without bundler](#debug-without-bundler)
     - [Debug CocoaPods](#debug-cocoapods)
     - [Debug CocoaPods & plugin](#debug-cocoapods--plugin)
     - [Example of debugging CocoaPods & plugin](#example-of-debugging-cocoapods--plugin)
@@ -30,7 +31,42 @@ gem install debase
 
 [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby)
 
-## Debug
+## Debug With bundler
+
+- Create a `Gemfile` in project root and add the following content to it
+
+```rb
+gem 'cocoapods', path: 'path/to/cocoapods/'
+gem 'cocoapods-binary', path: 'path/to/cocoapods-binary/'
+gem 'ruby-debug-ide'
+gem 'debase'
+```
+
+- run `bundle install`
+- Create `.vscode/launch.json` in project root
+
+```json
+{
+  "configurations": [{
+      "name": "Debug CocoaPods Plugin with Bundler",
+      "showDebuggerOutput": true,
+      "type": "Ruby",
+      "request": "launch",
+      "useBundler": true,
+      "cwd": "${workspaceRoot}/Testing",
+      "program": "${workspaceRoot}/cocoapods/bin/pod",
+      "args": ["install"]
+    }
+}
+```
+
+- Add some breakpoint within VSCode
+- Press F5 or hit menu `Debug - Start Debugging`
+
+
+## Debug without bundler
+
+> Don't waste your time! Use bundler now!
 
 ### Debug CocoaPods
 

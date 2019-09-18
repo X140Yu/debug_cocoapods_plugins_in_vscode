@@ -1,12 +1,23 @@
 {
   "configurations": [{
-    "name": "Debug CocoaPods Plugin",
-    "showDebuggerOutput": true,
-    "type": "Ruby",
-    "request": "launch",
-    "cwd": "${workspaceRoot}/Testing",
-    "pluginPath": "../cocoapods-binary",
-    "program": "${workspaceRoot}/cocoapods/bin/pod",
-    "args": ["install"]
-  }]
+      "name": "Debug CocoaPods Plugin with Bundler",
+      "showDebuggerOutput": true,
+      "type": "Ruby",
+      "request": "launch",
+      "useBundler": true,
+      "cwd": "${workspaceRoot}/Testing",
+      "program": "${workspaceRoot}/cocoapods/bin/pod",
+      "args": ["install"]
+    },
+    {
+      "name": "Debug CocoaPods Plugin without Bundler",
+      "showDebuggerOutput": true,
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/Testing",
+      "pluginPath": "../cocoapods-binary",
+      "program": "${workspaceRoot}/cocoapods/bin/pod",
+      "args": ["install"]
+    }
+  ]
 }
