@@ -2,7 +2,7 @@
 
 [中文版本点这里](./duwo.md)
 
-[使用 VSCode debug CocoaPods 和插件源码 - X140Yu's blog](https://x140yu.github.io/2019-08-19-debug-cocoapods/)
+[使用 VSCode debug CocoaPods 和插件源码](https://zxy.vercel.app/debug-cocoapods-with-vscode)
 
 ![Debug cocoapods](img/1.png)
 
