@@ -177,7 +177,7 @@ GEM
       kramdown (~> 1.5)
       octokit (~> 4.2)
       terminal-table (~> 1)
-    diffy (3.2.1)
+    diffy (3.4.2)
     escape (0.0.4)
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
